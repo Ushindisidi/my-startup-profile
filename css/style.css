@@ -1,0 +1,1166 @@
+/* Universal Styles & Variables */
+:root {
+    --primary-color: #f7a700; /* A vibrant orange for highlights */
+    --secondary-color: #6a4f2b; /* A darker brown/orange for text and accents */
+    --text-color: #333;
+    --light-text-color: #555;
+    --background-light: #fdfae7; /* Light background for sections */
+    --background-dark: #e8d7a1; /* Slightly darker background for alternate sections/footer */
+    --white: #fff;
+    --border-color: #ddd;
+    --spacing-unit: 1.5rem; /* Base spacing for consistent margins/padding */
+    --font-family-sans: Arial, sans-serif;
+    --font-family-serif: Georgia, serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 15px;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-sans);
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-unit);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: var(--white);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2 * var(--spacing-unit);
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e09400; /* Slightly darker primary */
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.btn-cta {
+    background-color: #ff5722; /* A strong call-to-action color */
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-cta:hover {
+    background-color: #463c3a;
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: white;
+    border: 2px solid var(--white);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.text-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    margin-left: 1rem;
+}
+
+/* Header */
+header {
+    background-color: var(--white);
+    padding: 1rem var(--spacing-unit);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.site-logo img {
+    margin-right: 0.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    margin-left: 1.5rem;
+}
+
+header nav ul li a {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+header nav ul li .btn {
+    margin-left: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.6); /* Darken the image for text readability */
+}
+
+.hero-text-overlay {
+    z-index: 1;
+    color: var(--white);
+    max-width: 800px;
+    padding: var(--spacing-unit);
+}
+
+.hero-text-overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--white); /* Ensure H1 is white */
+}
+
+.hero-text-overlay h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--white); /* Ensure H2 is white */
+    text-align: center;
+}
+
+.hero-text-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Mission Section */
+.mission-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem var(--spacing-unit);
+    background-color: var(--background-dark);
+    gap: 3rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.mission-text-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.mission-text-content h3 {
+    color: var(--primary-color);
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.mission-text-content h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.mission-text-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.mission-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.mission-image-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.mission-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Grid */
+.features-grid {
+    padding: 4rem var(--spacing-unit);
+    background-color: var(--background-light);
+    text-align: center;
+}
+
+.features-grid h2 {
+    margin-bottom: 3rem;
+}
+
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-item {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.features-item:hover {
+    transform: translateY(-5px);
+}
+
+.features-item img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for image consistency */
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+}
+
+.features-item h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.features-item p {
+    color: var(--light-text-color);
+    margin-bottom: 1.5rem;
+}
+
+.features-item .feature-link {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.features-item .feature-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Community Voices (Testimonials) */
+.community-voices {
+    padding: 4rem var(--spacing-unit);
+    background-color: var(--background-dark);
+    text-align: center;
+}
+
+.community-voices .section-description {
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    margin-bottom: 3rem;
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.Testimonial-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.Testimonial-card .stars {
+    color: gold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.Testimonial-card .Testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; 
+}
+
+.Testimonial-card .Testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    
+    background-color: #ccc;
+    display: block; 
+}
+
+.Testimonial-card .Testimonial-author {
+    font-weight: bold;
+    color: white;
+    font-size: 1.1rem;
+}
+
+/* Empowering Nairobi Section */
+.empowering-Nairobi {
+    padding: 4rem var(--spacing-unit);
+    background-color: var(--background-light);
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.empowering-Nairobi .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.empowering-Nairobi .text-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.empowering-Nairobi .text-content h2 {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.empowering-Nairobi .text-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.empowering-Nairobi .info-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.empowering-Nairobi .info-block {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.empowering-Nairobi .info-block h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.empowering-Nairobi .info-block h4 i {
+    margin-right: 0.8rem;
+    font-size: 1.5rem;
+}
+
+.empowering-Nairobi .info-block p {
+    color: var(--light-text-color);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.empowering-Nairobi .image-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.empowering-Nairobi .empowering-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.faq-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #eb9124;
+    border-radius: 8px;
+}
+
+.faq-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #715415;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0 1rem;
+}
+
+.faq-answer p {
+    margin: 1rem 0;
+    color: #555;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* adjust as needed */
+    padding: 1rem;
+}
+
+
+/* Team Section */
+.team {
+    padding: 4rem var(--spacing-unit);
+    background-color: var(--background-dark);
+    text-align: center;
+}
+
+.team h2 {
+    margin-bottom: 1rem;
+}
+
+.team p {
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    margin-bottom: 3rem;
+}
+
+.team-members-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex: 0 0 calc(30% - 2rem); /* Three columns with gap */
+    max-width: 350px; /* Control max width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .team-member-card {
+        flex-basis: 100%;
+    }
+}
+.team-member-card .team-member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--primary-color);
+}
+
+.team-member-card h2, .team-member-card h3, .team-member-card h4 {
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.team-member-card h2, .team-member-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+.team-member-card h4 {
+    font-size: 1.4rem;
+}
+
+
+.team-member-card .members-description {
+    color: var(--light-text-color);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Allows text to take available space */
+}
+
+.team-member-card .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; /* Push to the bottom */
+}
+
+.team-member-card .social-icons a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.team-member-card .social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Chatbot Section */
+.chatbot-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem var(--spacing-unit);
+    background-color: var(--background-light);
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.chatbot-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.chatbot-content h2 {
+    text-align: left;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.chatbot-content p {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin-bottom: 2rem;
+}
+
+.chatbot-features {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.chatbot-features .feature-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.chatbot-features .feature-title {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.chatbot-features .feature-description {
+    color: var(--light-text-color);
+    font-size: 0.95rem;
+}
+
+.Chatbot-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Chatbot-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.chat-display {
+    width: 100%; 
+    height: 300px;  
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+
+
+/* Chat bubble common styles */
+.chat-bubble {
+    padding: 0.8rem 1rem;
+    border-radius: 20px;
+    max-width: 70%;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* User message bubble */
+.chat-bubble.user {
+    background-color: #d1e7ff;
+    align-self: flex-end;
+    color: #333;
+}
+
+/* Bot message bubble */
+.chat-bubble.bot {
+    background-color: #e6e6e6;
+    align-self: flex-start;
+    color: #333;
+}
+
+/* Chat input form styling */
+.chatbot-form {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    width: 100%;
+    gap: 0.5rem;
+    border-top: 1px solid #ccc;
+}
+
+.chatbot-form input[type="text"] {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+
+.chatbot-form button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.chatbot-form button:hover {
+    background-color: #45a049;
+}
+
+/* Smooth bubble fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Contact Section */
+ .contact-section{
+    padding: 4rem var(--spacing-unit);
+    background-color: var(--background-dark);
+    text-align: center;
+}
+
+.contact-section .section-description {
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    margin-bottom: 3rem;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="Email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-form input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: left;
+}
+
+.contact-info .info-block {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info .info-block h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info .info-block p {
+    color: var(--light-text-color);
+    margin-bottom: 0.5rem;
+}
+
+.contact-info .info-block a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-info .info-block a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 3rem var(--spacing-unit);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    font-size: 0.95rem;
+}
+
+footer .footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+    flex-basis: 100%; /* Take full width on top */
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+footer .footer-logo img {
+    margin-right: 0.5rem;
+}
+
+
+footer .footer-column {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+footer .footer-column h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+footer .footer-column p {
+    margin-bottom: 0.5rem;
+}
+
+footer .footer-column a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+footer .footer-column a:hover {
+    text-decoration: underline;
+}
+
+footer .social-icons a {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+footer .social-icons a:hover {
+    color: var(--primary-color);
+}
+
+footer .footer-column ul {
+    list-style: none;
+}
+
+footer .footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer.bottom {
+    flex-basis: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer.bottom p {
+    margin: 0.5rem 0;
+}
+
+.footer.bottom a {
+    color: var(--white);
+    margin: 0 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-text-overlay h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-text-overlay h2 {
+        font-size: 2.5rem;
+    }
+
+    .mission-section,
+    .empowering-Nairobi,
+    .chatbot-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mission-text-content,
+    .empowering-Nairobi .text-content,
+    .chatbot-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .mission-text-content h2,
+    .empowering-Nairobi .text-content h2,
+    .chatbot-content h2 {
+        text-align: center;
+    }
+
+    .mission-actions {
+        justify-content: center;
+    }
+
+    .empowering-Nairobi .info-blocks {
+        justify-content: center;
+    }
+
+    .team-member-card {
+        flex-basis: calc(50% - 2rem); /* Two columns on medium screens */
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-form,
+    .contact-info {
+        max-width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .footer-column {
+        min-width: unset;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 1rem;
+    }
+
+    .site-logo {
+        margin-bottom: 1rem;
+    }
+
+    .hero {
+        height: 450px;
+    }
+
+    .hero-text-overlay h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-text-overlay h2 {
+        font-size: 2rem;
+    }
+
+    .btn-cta, .btn-ghost {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .features-container,
+    .testimonials-container {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .team-member-card {
+        flex-basis: 100%; /* Single column on small screens */
+    }
+
+    .chatbot-form {
+        flex-direction: column;
+    }
+
+    .chatbot-form button {
+        width: 100%;
+    }
+
+    .footer.bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text-overlay h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text-overlay h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-cta, .btn-ghost {
+        width: 80%; /* Make buttons wider */
+        max-width: 250px;
+    }
+}
+/* Theme Toggle Button Styles */
+
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit; 
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    color: #007bff; 
+}
+

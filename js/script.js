@@ -1,48 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Dark and Light Theme Toggle
     const body = document.body;
-    const themeToggleBtn = document.createElement('button');
-    themeToggleBtn.classList.add('theme-toggle-btn');
-    themeToggleBtn.setAttribute('aria-label', 'Toggle light and dark theme');
+    const themeToggleBtn = document.getElementById('theme-toggle'); // Get the existing button
 
-    const mainNav = document.querySelector('nav ul');
-    if (mainNav) {
-        const themeToggleListItem = document.createElement('li');
-        themeToggleListItem.appendChild(themeToggleBtn);
-        mainNav.appendChild(themeToggleListItem);
+    // Initial theme setup
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        themeToggleBtn.innerHTML = (savedTheme === 'dark-theme' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>');
     } else {
-        body.appendChild(themeToggleBtn);
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-theme');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'dark-theme');
+        } else {
+            body.classList.add('light-theme');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', 'light-theme');
+        }
     }
 
-    body.classList.add('light-theme');
-    themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    // Toggle theme on button click
+    themeToggleBtn.addEventListener('click', () => {
+        if (body.classList.contains('light-theme')) {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'dark-theme');
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', 'light-theme');
+        }
+    });
 
-    
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    body.classList.add(savedTheme); 
-    themeToggleBtn.innerHTML = (savedTheme === 'dark-theme' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>');
-} else {
-    
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        body.classList.add('dark-theme');
-        themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'dark-theme'); 
-    } else {
-        body.classList.add('light-theme'); 
-         themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', 'light-theme'); 
-    }
-}
-
-
-    
+    // 2. FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
         const answer = question.nextElementSibling;
 
-        
         answer.style.overflow = 'hidden';
         answer.style.maxHeight = '0';
         answer.style.transition = 'max-height 0.5s ease';
@@ -116,22 +115,23 @@ if (savedTheme) {
             contactForm.reset();
         });
     }
-});
-// --- 4. AI Chatbot Integration ---
-    const chatbotLog = document.getElementById('chatbot-log'); // Changed from 'chat-display'
+
+    // --- 4. AI Chatbot Integration ---
+    const chatbotLog = document.getElementById('chatbot-log');
     const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotForm = document.getElementById('chatbot-form'); // Get the form itself
+    const chatbotForm = document.getElementById('chatbot-form');
 
-    // IMPORTANT: Replace with actual information about JiraniExchange
-    const systemPrompt = `You are a helpful AI chatbot for JiraniExchange, a startup based in Nairobi, Nairobi County, Kenya. Answer questions accurately based on the following context:
+    const systemPrompt = `You are a helpful AI chatbot for JiraniExchange, a startup based in Nairobi,
+     Nairobi County, Kenya. Answer questions accurately based on the following context:
 
-    - *Who founded the startup?* Joyce Kadzo.
-    - *What problems does it solve?* JiraniExchange connects untapped local skills, talents, and resources with specific community needs, fostering sharing, collaboration, and mutual support. It addresses gaps in local resources and helps individuals showcase their skills.
-    - *What services or products does it offer?* JiraniExchange offers Resource Exchange (sharing tools and materials), a Waste-to-Value Hub (transforming unused materials), and Skill Match (connecting residents with expertise).
-    - *How can someone support or contact the team?* You can join the platform, explore resources, join the Waste-to-Value Hub, or connect for skill sharing. For direct contact, you can reach them via email at jiraniexchange@gmail.com, phone at +254748920063, or visit their office at 643 Mfangano street, Nairobi, Kenya.
-    - *What’s the startup’s vision or long-term goal?* JiraniExchange's vision is to empower local communities, enhance social cohesion, and drive collective growth by transforming neighborhoods into thriving centers of collaboration and support, ultimately creating a brighter future for Nairobi.
+    Who founded the startup? Joyce Kadzo.
+    What problems does it solve? JiraniExchange connects untapped local skills, talents, and resources with specific community needs, fostering sharing, collaboration, and mutual support. It addresses gaps in local resources and helps individuals showcase their skills.
+    What services or products does it offer? JiraniExchange offers Resource Exchange (sharing tools and materials), a Waste-to-Value Hub (transforming unused materials), and Skill Match (connecting residents with expertise).
+    How can someone support or contact the team? You can join the platform, explore resources, join the Waste-to-Value Hub, or connect for skill sharing. For direct contact, you can reach them via email at jiraniexchange@gmail.com, phone at +254748920063, or visit their office at 643 Mfangano street, Nairobi, Kenya.
+    What’s the startup’s vision or long-term goal?JiraniExchange's vision is to empower local communities, enhance social cohesion, and drive collective growth by transforming neighborhoods into thriving centers of collaboration and support, ultimately creating a brighter future for Nairobi.
 
-    Answer concisely and professionally. If a question is outside of this context, politely state that you can only answer questions about JiraniExchange and its services. Remember the current location is Nairobi, Nairobi County, Kenya.`;
+    Answer concisely and professionally. If a question is outside of this context,
+     politely state that you can only answer questions about JiraniExchange and its services. Remember the current location is Nairobi, Nairobi County, Kenya.`;
 
 
     function addMessage(message, sender) {
@@ -139,26 +139,23 @@ if (savedTheme) {
         messageDiv.classList.add('chatbot-message', sender);
         messageDiv.textContent = message;
         chatbotLog.appendChild(messageDiv);
-        chatbotLog.scrollTop = chatbotLog.scrollHeight; // Scroll to the bottom
+        chatbotLog.scrollTop = chatbotLog.scrollHeight;
     }
 
-    // Initial welcome message from the chatbot
+
     addMessage('Welcome to JiraniExchange! Ask me anything about our startup.', 'system');
 
-    // Use the form's submit event listener
     chatbotForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
 
         const userMessage = chatbotInput.value.trim();
         if (userMessage) {
             addMessage(userMessage, 'user');
-            chatbotInput.value = ''; // Clear input immediately
+            chatbotInput.value = '';
 
             try {
-                // Show a "typing" indicator or disable input while waiting for AI
-                // For simplicity, just add a temporary message
                 addMessage('Thinking...', 'assistant-thinking');
-                chatbotInput.disabled = true; // Disable input while processing
+                chatbotInput.disabled = true;
 
                 const response = await puter.ai.chat({
                     messages: [
@@ -167,7 +164,6 @@ if (savedTheme) {
                     ],
                 });
 
-                // Remove thinking indicator/re-enable input
                 chatbotLog.querySelector('.assistant-thinking')?.remove();
                 chatbotInput.disabled = false;
 
@@ -180,3 +176,4 @@ if (savedTheme) {
             }
         }
     });
+});

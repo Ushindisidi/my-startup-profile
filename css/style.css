@@ -1144,4 +1144,260 @@ footer .footer-column ul li {
 .theme-toggle-btn:hover {
     color: #007bff; 
 }
+/* Add this to your style.css file */
 
+body.dark-theme {
+    --primary-color: #f7a700; /* Still a prominent color, perhaps slightly adjusted for contrast */
+    --secondary-color: #92754c; /* Darker secondary for dark theme */
+    --text-color: #e0e0e0; /* Light text on dark background */
+    --light-text-color: #cccccc; /* Slightly darker light text */
+    --background-light: #2c2c2c; /* Dark background */
+    --background-dark: #3a3a3a; /* Slightly lighter dark background */
+    --white: #444; /* Darker "white" for elements that were white */
+    --border-color: #555; /* Darker borders */
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+body.dark-theme header {
+    background-color: #3a3a3a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .site-logo {
+    color: var(--primary-color);
+}
+
+body.dark-theme header nav ul li a {
+    color: var(--text-color);
+}
+
+body.dark-theme .hero-text-overlay h1 {
+    color: var(--primary-color); /* Keep it vibrant */
+}
+
+body.dark-theme .hero-text-overlay h2 {
+    color: var(--text-color);
+}
+
+body.dark-theme .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+body.dark-theme .btn-primary:hover {
+    background-color: #e09400; /* Slightly darker hover */
+}
+
+body.dark-theme .btn-secondary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+body.dark-theme .btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+}
+
+body.dark-theme .btn-ghost {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+body.dark-theme .btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .mission-section {
+    background-color: var(--background-dark);
+}
+
+body.dark-theme .mission-text-content h3 {
+    color: var(--primary-color);
+}
+
+body.dark-theme .mission-text-content h2 {
+    color: var(--text-color);
+}
+
+body.dark-theme .features-grid {
+    background-color: var(--background-light);
+}
+
+body.dark-theme .features-item {
+    background-color: #3a3a3a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .features-item h3 {
+    color: var(--primary-color);
+}
+
+body.dark-theme .features-item p {
+    color: var(--light-text-color);
+}
+
+body.dark-theme .features-item .feature-link {
+    color: var(--primary-color);
+}
+
+body.dark-theme .features-item .feature-link:hover {
+    color: var(--secondary-color);
+}
+
+body.dark-theme .community-voices {
+    background-color: var(--background-dark);
+}
+
+body.dark-theme .Testimonial-card {
+    background-color: #3a3a3a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .Testimonial-card .Testimonial-author {
+    color: var(--primary-color); /* To stand out */
+}
+
+body.dark-theme .empowering-Nairobi {
+    background-color: var(--background-light);
+}
+
+body.dark-theme .empowering-Nairobi .info-block {
+    background-color: #3a3a3a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .empowering-Nairobi .info-block h4 {
+    color: var(--primary-color);
+}
+
+body.dark-theme .faq-section {
+    background-color: var(--secondary-color); /* A darker shade for FAQ */
+}
+
+body.dark-theme .faq-section h3 {
+    color: var(--text-color);
+}
+
+body.dark-theme .faq-question {
+    background-color: #4a4a4a;
+    color: var(--text-color);
+}
+
+body.dark-theme .faq-question:hover {
+    background-color: #6a6a6a;
+}
+
+body.dark-theme .faq-answer p {
+    color: var(--light-text-color);
+}
+
+body.dark-theme .team {
+    background-color: var(--background-dark);
+}
+
+body.dark-theme .team-member-card {
+    background-color: #3a3a3a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .team-member-card h2,
+body.dark-theme .team-member-card h3,
+body.dark-theme .team-member-card h4 {
+    color: var(--primary-color);
+}
+
+body.dark-theme .team-member-card .social-icons a {
+    color: var(--text-color);
+}
+
+body.dark-theme .team-member-card .social-icons a:hover {
+    color: var(--primary-color);
+}
+
+body.dark-theme .chatbot-section {
+    background-color: var(--background-dark);
+}
+
+body.dark-theme #chatbot-log {
+    background-color: #4a4a4a;
+    border-color: #666;
+}
+
+body.dark-theme #chatbot-input {
+    background-color: #5a5a5a;
+    color: var(--text-color);
+    border-color: #666;
+}
+
+body.dark-theme #chatbot-form button {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+body.dark-theme #chatbot-form button:hover {
+    background-color: #e09400;
+}
+
+body.dark-theme .chatbot-message.user {
+    background-color: #5f7a6f; /* Darker green */
+    color: #fff;
+}
+
+body.dark-theme .chatbot-message.system,
+body.dark-theme .chatbot-message.assistant {
+    background-color: #6a6a6a;
+    color: var(--text-color);
+}
+
+body.dark-theme .contact-section {
+    background-color: var(--background-dark);
+}
+
+body.dark-theme .contact-form {
+    background-color: #3a3a3a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .contact-form label {
+    color: var(--text-color);
+}
+
+body.dark-theme .contact-form input[type="text"],
+body.dark-theme .contact-form input[type="Email"],
+body.dark-theme .contact-form textarea {
+    background-color: #5a5a5a;
+    color: var(--text-color);
+    border-color: #666;
+}
+
+body.dark-theme .contact-info .info-block {
+    background-color: #3a3a3a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .contact-info .info-block h3 {
+    color: var(--primary-color);
+}
+
+body.dark-theme .contact-info .info-block p,
+body.dark-theme .contact-info .info-block a {
+    color: var(--light-text-color);
+}
+
+body.dark-theme footer {
+    background-color: #1a1a1a; 
+}
+
+body.dark-theme footer .footer-logo,
+body.dark-theme footer .footer-column h4,
+body.dark-theme footer .footer-column p,
+body.dark-theme footer .footer-column a,
+body.dark-theme footer .social-icons a,
+body.dark-theme .footer.bottom p,
+body.dark-theme .footer.bottom a {
+    color: var(--light-text-color);
+}
+body.dark-theme footer .footer-column h4{
+    color: var(--primary-color);
+}

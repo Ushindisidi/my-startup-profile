@@ -186,7 +186,6 @@ header nav ul li .btn {
     margin-left: 1rem;
 }
 
-/* Hero Section */
 .hero {
     position: relative;
     width: 100%;
@@ -241,7 +240,6 @@ header nav ul li .btn {
     justify-content: center;
 }
 
-/* Mission Section */
 .mission-section {
     display: flex;
     align-items: center;
@@ -295,7 +293,6 @@ header nav ul li .btn {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Features Grid */
 .features-grid {
     padding: 4rem var(--spacing-unit);
     background-color: var(--background-light);
@@ -359,7 +356,6 @@ header nav ul li .btn {
     text-decoration: underline;
 }
 
-/* Community Voices (Testimonials) */
 .community-voices {
     padding: 4rem var(--spacing-unit);
     background-color: var(--background-dark);
@@ -420,7 +416,6 @@ header nav ul li .btn {
     font-size: 1.1rem;
 }
 
-/* Empowering Nairobi Section */
 .empowering-Nairobi {
     padding: 4rem var(--spacing-unit);
     background-color: var(--background-light);
@@ -827,7 +822,7 @@ header nav ul li .btn {
 }
 
 .contact-form textarea {
-    resize: vertical; /* Allow vertical resizing */
+    resize: vertical; 
 }
 
 .contact-form input[type="checkbox"] {
@@ -1015,7 +1010,7 @@ footer .footer-column ul li {
     }
 
     .team-member-card {
-        flex-basis: calc(50% - 2rem); /* Two columns on medium screens */
+        flex-basis: calc(50% - 2rem); 
     }
 
     .contact-container {
@@ -1080,11 +1075,11 @@ footer .footer-column ul li {
 
     .features-container,
     .testimonials-container {
-        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-columns: 1fr;
     }
 
     .team-member-card {
-        flex-basis: 100%; /* Single column on small screens */
+        flex-basis: 100%; 
     }
 
     .chatbot-form {
@@ -1129,7 +1124,6 @@ footer .footer-column ul li {
         max-width: 250px;
     }
 }
-/* Theme Toggle Button Styles */
 
 .theme-toggle-btn {
     background: none;
@@ -1144,17 +1138,16 @@ footer .footer-column ul li {
 .theme-toggle-btn:hover {
     color: #007bff; 
 }
-/* Add this to your style.css file */
 
 body.dark-theme {
-    --primary-color: #f7a700; /* Still a prominent color, perhaps slightly adjusted for contrast */
-    --secondary-color: #92754c; /* Darker secondary for dark theme */
-    --text-color: #e0e0e0; /* Light text on dark background */
-    --light-text-color: #cccccc; /* Slightly darker light text */
-    --background-light: #2c2c2c; /* Dark background */
-    --background-dark: #3a3a3a; /* Slightly lighter dark background */
-    --white: #444; /* Darker "white" for elements that were white */
-    --border-color: #555; /* Darker borders */
+    --primary-color: #f7a700; 
+    --secondary-color: #92754c; 
+    --text-color: #e0e0e0; 
+    --light-text-color: #cccccc; 
+    --background-light: #2c2c2c; 
+    --background-dark: #3a3a3a; 
+    --white: #444; 
+    --border-color: #555; 
     color: var(--text-color);
     background-color: var(--background-light);
 }
@@ -1173,7 +1166,7 @@ body.dark-theme header nav ul li a {
 }
 
 body.dark-theme .hero-text-overlay h1 {
-    color: var(--primary-color); /* Keep it vibrant */
+    color: var(--primary-color); 
 }
 
 body.dark-theme .hero-text-overlay h2 {
@@ -1186,7 +1179,7 @@ body.dark-theme .btn-primary {
 }
 
 body.dark-theme .btn-primary:hover {
-    background-color: #e09400; /* Slightly darker hover */
+    background-color: #e09400; 
 }
 
 body.dark-theme .btn-secondary {
@@ -1255,7 +1248,7 @@ body.dark-theme .Testimonial-card {
 }
 
 body.dark-theme .Testimonial-card .Testimonial-author {
-    color: var(--primary-color); /* To stand out */
+    color: var(--primary-color); 
 }
 
 body.dark-theme .empowering-Nairobi {
@@ -1272,7 +1265,7 @@ body.dark-theme .empowering-Nairobi .info-block h4 {
 }
 
 body.dark-theme .faq-section {
-    background-color: var(--secondary-color); /* A darker shade for FAQ */
+    background-color: var(--secondary-color); 
 }
 
 body.dark-theme .faq-section h3 {
@@ -1340,7 +1333,7 @@ body.dark-theme #chatbot-form button:hover {
 }
 
 body.dark-theme .chatbot-message.user {
-    background-color: #5f7a6f; /* Darker green */
+    background-color: #5f7a6f; 
     color: #fff;
 }
 

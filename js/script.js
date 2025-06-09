@@ -17,32 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.add('light-theme');
     themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
 
-    // Existing code...
+    
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
-    body.classList.add(savedTheme); // Add the saved theme directly
+    body.classList.add(savedTheme); 
     themeToggleBtn.innerHTML = (savedTheme === 'dark-theme' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>');
 } else {
-    // No saved theme, check system preference
+    
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         body.classList.add('dark-theme');
         themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'dark-theme'); // Optionally save system preference
+        localStorage.setItem('theme', 'dark-theme'); 
     } else {
-        body.classList.add('light-theme'); // Default to light if no system preference or system prefers light
-        themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', 'light-theme'); // Optionally save default
+        body.classList.add('light-theme'); 
+         themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light-theme'); 
     }
 }
 
 
-    // 2. FAQ Accordion with Smooth Animation
+    
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
         const answer = question.nextElementSibling;
 
-        // Ensure answer sections are hidden initially
+        
         answer.style.overflow = 'hidden';
         answer.style.maxHeight = '0';
         answer.style.transition = 'max-height 0.5s ease';
@@ -117,3 +117,66 @@ if (savedTheme) {
         });
     }
 });
+// --- 4. AI Chatbot Integration ---
+    const chatbotLog = document.getElementById('chatbot-log'); // Changed from 'chat-display'
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotForm = document.getElementById('chatbot-form'); // Get the form itself
+
+    // IMPORTANT: Replace with actual information about JiraniExchange
+    const systemPrompt = `You are a helpful AI chatbot for JiraniExchange, a startup based in Nairobi, Nairobi County, Kenya. Answer questions accurately based on the following context:
+
+    - *Who founded the startup?* Joyce Kadzo.
+    - *What problems does it solve?* JiraniExchange connects untapped local skills, talents, and resources with specific community needs, fostering sharing, collaboration, and mutual support. It addresses gaps in local resources and helps individuals showcase their skills.
+    - *What services or products does it offer?* JiraniExchange offers Resource Exchange (sharing tools and materials), a Waste-to-Value Hub (transforming unused materials), and Skill Match (connecting residents with expertise).
+    - *How can someone support or contact the team?* You can join the platform, explore resources, join the Waste-to-Value Hub, or connect for skill sharing. For direct contact, you can reach them via email at jiraniexchange@gmail.com, phone at +254748920063, or visit their office at 643 Mfangano street, Nairobi, Kenya.
+    - *What’s the startup’s vision or long-term goal?* JiraniExchange's vision is to empower local communities, enhance social cohesion, and drive collective growth by transforming neighborhoods into thriving centers of collaboration and support, ultimately creating a brighter future for Nairobi.
+
+    Answer concisely and professionally. If a question is outside of this context, politely state that you can only answer questions about JiraniExchange and its services. Remember the current location is Nairobi, Nairobi County, Kenya.`;
+
+
+    function addMessage(message, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('chatbot-message', sender);
+        messageDiv.textContent = message;
+        chatbotLog.appendChild(messageDiv);
+        chatbotLog.scrollTop = chatbotLog.scrollHeight; // Scroll to the bottom
+    }
+
+    // Initial welcome message from the chatbot
+    addMessage('Welcome to JiraniExchange! Ask me anything about our startup.', 'system');
+
+    // Use the form's submit event listener
+    chatbotForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        const userMessage = chatbotInput.value.trim();
+        if (userMessage) {
+            addMessage(userMessage, 'user');
+            chatbotInput.value = ''; // Clear input immediately
+
+            try {
+                // Show a "typing" indicator or disable input while waiting for AI
+                // For simplicity, just add a temporary message
+                addMessage('Thinking...', 'assistant-thinking');
+                chatbotInput.disabled = true; // Disable input while processing
+
+                const response = await puter.ai.chat({
+                    messages: [
+                        { role: 'system', content: systemPrompt },
+                        { role: 'user', content: userMessage },
+                    ],
+                });
+
+                // Remove thinking indicator/re-enable input
+                chatbotLog.querySelector('.assistant-thinking')?.remove();
+                chatbotInput.disabled = false;
+
+                addMessage(response.choices?.[0]?.message?.content || 'Sorry, I could not generate a response. Please try again.', 'assistant');
+            } catch (error) {
+                console.error('Error during chatbot interaction:', error);
+                chatbotLog.querySelector('.assistant-thinking')?.remove();
+                chatbotInput.disabled = false;
+                addMessage('An error occurred while processing your request. Please check your internet connection.', 'assistant');
+            }
+        }
+    });

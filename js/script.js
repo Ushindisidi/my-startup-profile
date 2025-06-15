@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const getStartedBtn = document.getElementById('get-started-btn');
     if (getStartedBtn) {
         getStartedBtn.addEventListener('click', () => {
-            alert('Welcome to JiraniExchange! Let\'s get you started.');
+            alert('Welcome to JiraniExchange! Let's get you started.');
         });
     }
 

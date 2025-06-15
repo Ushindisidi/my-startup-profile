@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await puter.ai.chat({
                     messages: messagesToSend,
                 });
+                console.log('Full AI Response:',response;
 
                 chatbotLog.querySelector('.assistant-thinking')?.remove();
                 chatbotInput.disabled = false;

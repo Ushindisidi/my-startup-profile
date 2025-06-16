@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const getStartedBtn = document.getElementById('get-started-btn');
     if (getStartedBtn) {
         getStartedBtn.addEventListener('click', () => {
-            alert('Welcome to JiraniExchange! Let's get you started.');
+            alert('Welcome to JiraniExchange! Let\'s get you started.');
         });
     }
 
@@ -149,16 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     { role: 'user', content: userMessage },
                 ];
 
-                const response = await puter.ai.chat({
-                    messages: messagesToSend,
-                });
-                console.log('Full AI Response:',response;
+                const response = await puter.ai.chat(messagesToSend);
+                console.log('Full AI Response:',response);
 
                 chatbotLog.querySelector('.assistant-thinking')?.remove();
                 chatbotInput.disabled = false;
 
-                if (response && response.choices && response.choices[0] && response.choices[0].message && response.choices[0].message.content) {
-                    addMessage(response.choices[0].message.content, 'assistant');
+                if (response && response.message && response.message.content) {
+                    addMessage(response.message.content, 'assistant');
                 } else {
                     addMessage('Sorry, I received an unexpected response from the AI. Please try again or rephrase.', 'assistant');
                 }
